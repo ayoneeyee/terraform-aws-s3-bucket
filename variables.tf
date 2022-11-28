@@ -1,3 +1,7 @@
+variable "prod_access_key" {}
+
+variable "prod_secret_key" {}
+
 variable "create_bucket" {
   description = "Controls if S3 bucket should be created"
   type        = bool
