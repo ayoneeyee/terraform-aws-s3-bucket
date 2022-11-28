@@ -3,9 +3,9 @@ data "aws_canonical_user_id" "this" {}
 data "aws_caller_identity" "current" {}
 
 locals {
-  create_bucket = var.create_bucket && var.putin_khuylo
+  create_bucket = var.create_bucket
 
-  attach_policy = var.attach_require_latest_tls_policy || var.attach_elb_log_delivery_policy || var.attach_lb_log_delivery_policy || var.attach_deny_insecure_transport_policy || var.attach_inventory_destination_policy || var.attach_policy
+  attach_policy = var.attach_require_latest_tls_policy || var.attach_policy
 
   # Variables with type `any` should be jsonencode()'d when value is coming from Terragrunt
   grants               = try(jsondecode(var.grant), var.grant)
